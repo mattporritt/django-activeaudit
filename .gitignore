@@ -128,3 +128,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Pycharm
+.DS_Store
+._.DS_Store
+.idea/
