@@ -1,0 +1,27 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>{% block title %}ActiveAudit - Template{% endblock %}</title>
+        {% block head %}
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% endblock %}
+        {% block css %}
+            <link rel='stylesheet' href='{% static "bootstrap/css/bootstrap.min.css" %}' />
+        {% endblock %}
+    </head>
+    {% block body %}
+    <body>
+    {% block content %}
+        <!-- This block should be used many body content -->
+    {% endblock %}
+        {% block javascript %}
+            <script src='{% static "bootstrap/js/bootstrap.bundle.min.js" %}' type="text/javascript"></script>
+        {% endblock %}
+        {% block javascript_extra %}
+            <!-- This block should be used for any template specific javascript -->
+        {% endblock %}
+    </body>
+    {% endblock %}
+</html>

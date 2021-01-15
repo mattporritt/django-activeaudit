@@ -26,8 +26,9 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-package-lock.json
-node_modules/
+/package-lock.json
+/node_modules/
+/static
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

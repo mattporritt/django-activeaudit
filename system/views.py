@@ -22,8 +22,12 @@
 # @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 # ==============================================================================
 
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("ActiveAudit...")
+    context = {}
+
+    # Pass the context to a template
+    return render(request, 'system/index.html', context)
+
