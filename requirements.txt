@@ -1,0 +1,7 @@
+###### Requirements with Version Specifiers ######
+Django==3.1.4
+
+###### Requirements without Version Specifiers ######
+psycopg2
+websockets
+
