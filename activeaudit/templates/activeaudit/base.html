@@ -13,6 +13,14 @@
     </head>
     {% block body %}
     <body>
+    <header>
+        {% block header %}
+            <nav class="navbar navbar-expand-lg aa-nav">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1">ActiveAudit</span>
+                </div>
+            </nav>
+        {% endblock %}
         {% block content %}
             <!-- This block should be used many body content -->
         {% endblock %}
