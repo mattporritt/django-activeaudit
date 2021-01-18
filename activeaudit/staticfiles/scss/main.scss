@@ -32,7 +32,17 @@
   font-weight: normal;
   font-style: normal;
 }
+// Initial project color palate
+$rich-black-fogra-29: #0f111aff; // rgba(15, 17, 26, 1);
+$space-cadet: #202639ff; // rgba(32, 38, 57, 1);
+$space-cadet-2: #323d5eff; // rgba(50, 61, 94, 1);
+$purple-navy: #465686ff; // rgba(70, 86, 134, 1);
+$periwinkle-crayola: #bcc4dcff; // rgba(188, 196, 220, 1);
 
 body {
   font-family: 'latoregular', Helvetica, Arial, Sans-Serif;
+  color: #ffffff;
+  background-image: linear-gradient( 112.1deg, $space-cadet 30%, $space-cadet-2 89% );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

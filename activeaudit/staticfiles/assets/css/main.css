@@ -12018,6 +12018,10 @@ readers do not read off random characters that represent icons */
   font-style: normal; }
 
 body {
-  font-family: 'latoregular', Helvetica, Arial, Sans-Serif; }
+  font-family: 'latoregular', Helvetica, Arial, Sans-Serif;
+  color: #FFFFFF;
+  background-image: linear-gradient(112.1deg, #202639ff 30%, #323d5eff 89%);
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
 
 /*# sourceMappingURL=main.css.map */
