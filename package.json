@@ -1,0 +1,10 @@
+{
+  "name": "ActiveAudit",
+  "private": true,
+  "description": "ActiveAudit Development Dependencies",
+  "devDependencies": {
+    "grunt": "^1.3.0",
+    "grunt-sass": "^3.1.0",
+    "node-sass": "^5.0.0"
+  }
+}
