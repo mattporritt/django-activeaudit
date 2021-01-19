@@ -12036,6 +12036,16 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: #0f111a;
-  text-align: center; }
+  text-align: center;
+  padding-top: 1.5rem;
+  -webkit-box-shadow: 0px -2px 4px 0px #bcc4dc;
+  -ms-box-shadow: 0px -2px 4px 0px #bcc4dc;
+  box-shadow: 0px -2px 4px 0px #bcc4dc; }
+  footer a {
+    color: #bcc4dc;
+    text-decoration: none; }
+    footer a:hover {
+      text-decoration: underline;
+      color: #465686; }
 
 /*# sourceMappingURL=main.css.map */

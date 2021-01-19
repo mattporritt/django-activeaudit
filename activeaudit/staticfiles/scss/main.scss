@@ -64,4 +64,15 @@ footer {
   width: 100%;
   background-color: $rich-black-fogra-29;
   text-align: center;
+  padding-top: 1.5rem;
+  @include prefix(box-shadow, 0px -2px 4px 0px rgba(188,196,220,1), webkit ms);
+
+  a {
+    color: $periwinkle-crayola;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      color: $purple-navy;
+    }
+  }
 }
