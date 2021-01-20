@@ -1,4 +1,14 @@
 
+// Initial project color palate.
+$rich-black-fogra-29: #0f111a; // rgba(15, 17, 26, 1);
+$space-cadet: #202639; // rgba(32, 38, 57, 1);
+$space-cadet-2: #323d5e; // rgba(50, 61, 94, 1);
+$purple-navy: #465686; // rgba(70, 86, 134, 1);
+$periwinkle-crayola: #bcc4dc; // rgba(188, 196, 220, 1);
+
+// Override Bootstrap variables.
+$primary: $purple-navy;
+
 // Import Bootstrap 5.
 @import "./bootstrap/scss/bootstrap";
 
@@ -34,12 +44,6 @@
   font-weight: normal;
   font-style: normal;
 }
-// Initial project color palate.
-$rich-black-fogra-29: #0f111a; // rgba(15, 17, 26, 1);
-$space-cadet: #202639; // rgba(32, 38, 57, 1);
-$space-cadet-2: #323d5e; // rgba(50, 61, 94, 1);
-$purple-navy: #465686; // rgba(70, 86, 134, 1);
-$periwinkle-crayola: #bcc4dc; // rgba(188, 196, 220, 1);
 
 body {
   font-family: 'latoregular', Helvetica, Arial, Sans-Serif;
@@ -47,6 +51,11 @@ body {
   background-image: linear-gradient( 112.1deg, $space-cadet 30%, $space-cadet-2 89% );
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+p {
+  font-size: 1.1rem;
+  text-shadow: 1px 2px #000;
 }
 
 .navbar{

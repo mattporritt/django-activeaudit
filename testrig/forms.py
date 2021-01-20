@@ -22,29 +22,9 @@
 # @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 # ==============================================================================
 
-from django.shortcuts import render
-from testrig.forms import CoturnTestForm
+from django import forms
 
 
-def index(request):
-    """
-    The index page for the text rig.
-    It provides links to the individual pages to test components.
-    """
-    context = {}
+class CoturnTestForm(forms.Form):
+    your_name = forms.CharField(label='Your name', max_length=100)
 
-    # Pass the context to a template
-    return render(request, 'testrig/index.html', context)
-
-
-def coturn(request):
-    """
-    Render the form and required dependencies
-    to test COTURN service functionality.
-    """
-
-    testform = CoturnTestForm()
-    context = {'form': testform}
-
-    # Pass the context to a template
-    return render(request, 'testrig/coturn.html', context)

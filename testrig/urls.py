@@ -31,5 +31,6 @@ from django.urls import path
 from testrig import views
 
 urlpatterns = [
+    path('coturn/', views.coturn, name='coturn'),
     path('', views.index, name='index'),
 ]

@@ -1,0 +1,29 @@
+{% extends "activeaudit/base.html" %}
+{% load i18n %} {# Load translations. Declaration must be in any template that has strings. #}
+
+{% load static %} {# Load static files. Declaration must be in any template that directly references a static file. #}
+
+{% block title %}
+    {% translate "ActiveAudit" as project %}
+    {% blocktranslate %}{{ project }} - Test Rig{% endblocktranslate %}
+{% endblock %}
+
+{% block content %}
+    <div class="col-xl-6 offset-xl-3 col-lg-9 offset-lg-1">
+        <h1>{% translate "Test Coturn" %}</h1>
+        <p>This page tests the STUN and TURN functionality of the COTURN service.
+            It creates a PeerConnection with the specified Servers, and then starts candidate gathering for a session.
+            As candidates are gathered, they are displayed in the text box below.</p>
+        <p>Individual STUN and TURN servers can be added using the Add server / Remove server controls below;
+           in addition, the type of candidates released to the application can be controlled via the IceTransports setting.</p>
+        <p>STUN is working if you can gather a candidate with type "srflx".
+           TURN server is working if you can gather a candidate with type "relay".
+        <p>You can also test if you are using the wrong credentials to authenticate.</p>
+    </div>
+    <div class="col-xl-6 offset-xl-3 col-lg-9 offset-lg-1">
+        <form action="#" method="get">
+            {{ form }}
+        </form>
+    </div>
+
+{% endblock %}

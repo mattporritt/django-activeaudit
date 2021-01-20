@@ -1,10 +1,22 @@
 {% extends "activeaudit/base.html" %}
-{# The load static files declaration must be in any template that directly references a static file #}
-{% load static %}
+{% load i18n %} {# Load translations. Declaration must be in any template that has strings. #}
 
-{% block title %}ActiveAudit - Test Rig{% endblock %}
+{% load static %} {# Load static files. Declaration must be in any template that directly references a static file. #}
+
+{% block title %}
+    {% translate "ActiveAudit" as project %}
+    {% blocktranslate %}{{ project }} - Test Rig{% endblocktranslate %}
+{% endblock %}
 
 {% block content %}
-           testing...
-
+    <div class="col-md-4 offset-md-4">
+        <h1>{% translate "Test Rig" %}</h1>
+        <p>{% translate "This section allows for direct testing of components used in ActiveAudit." %}</p>
+        <p>{% translate "Use the buttons below to access tests for individual components." %}</p>
+    </div>
+    <div class="col-md-4 offset-md-4">
+        <div class="d-grid gap-2">
+            <a href="/test/coturn" class="btn btn-primary btn-lg">{% translate "COTURN" %}</a>
+        </div>
+    </div>
 {% endblock %}
