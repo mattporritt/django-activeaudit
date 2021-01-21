@@ -23,7 +23,6 @@
 # ==============================================================================
 
 from django.shortcuts import render
-from testrig.forms import CoturnTestForm
 
 
 def index(request):
@@ -39,12 +38,10 @@ def index(request):
 
 def coturn(request):
     """
-    Render the form and required dependencies
-    to test COTURN service functionality.
+    Render the form to test COTURN service functionality.
     """
 
-    testform = CoturnTestForm()
-    context = {'form': testform}
+    context = {}
 
     # Pass the context to a template
     return render(request, 'testrig/coturn.html', context)

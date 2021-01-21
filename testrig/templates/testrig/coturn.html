@@ -9,21 +9,84 @@
 {% endblock %}
 
 {% block content %}
-    <div class="col-xl-6 offset-xl-3 col-lg-9 offset-lg-1">
-        <h1>{% translate "Test Coturn" %}</h1>
-        <p>This page tests the STUN and TURN functionality of the COTURN service.
-            It creates a PeerConnection with the specified Servers, and then starts candidate gathering for a session.
-            As candidates are gathered, they are displayed in the text box below.</p>
-        <p>Individual STUN and TURN servers can be added using the Add server / Remove server controls below;
-           in addition, the type of candidates released to the application can be controlled via the IceTransports setting.</p>
-        <p>STUN is working if you can gather a candidate with type "srflx".
-           TURN server is working if you can gather a candidate with type "relay".
-        <p>You can also test if you are using the wrong credentials to authenticate.</p>
-    </div>
-    <div class="col-xl-6 offset-xl-3 col-lg-9 offset-lg-1">
-        <form action="#" method="get">
-            {{ form }}
-        </form>
-    </div>
+    <div class="row">
+        <div class="col-xl-8 offset-xl-2 col-lg-9 offset-lg-1">
+            <h1>{% translate "Test Coturn" %}</h1>
+            <p>This page tests the STUN and TURN functionality of the COTURN service.
+                It creates a PeerConnection with the specified Servers, and then starts candidate gathering for a session.
+                As candidates are gathered, they are displayed in the text box below.</p>
+            <p>Individual STUN and TURN servers can be added using the Add server / Remove server controls below;
+               in addition, the type of candidates released to the application can be controlled via the IceTransports setting.</p>
+            <p>STUN is working if you can gather a candidate with type "srflx".
+               TURN server is working if you can gather a candidate with type "relay".
+            <p>You can also test if you are using the wrong credentials to authenticate.</p>
 
+            <div class="row">
+                <div class="col-6">
+                    <h3>{% translate "Test Settings" %}</h3>
+                    {# I was initially going to use Django's built in Form API, but this form has zero server side interaction, #}
+                    {# Also as form and button tags need to be added to the template anyway, it's jsut as easy to do it all here. #}
+                    <form action="#" method="get" id="coturn-test-form">
+                        <div class="mb-3">
+                            {% translate "Servers to test" as servers %}
+                            <label for="testservers" class="form-label">{{ servers }}</label>
+                            <select id="testservers" class="form-select" multiple aria-label="{{ servers }}">
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            {% translate "Server URI" as uri %}
+                            <label for="serverurl" class="form-label">{{ uri }}</label>
+                            <input id="serverurl" type="email" class="form-control" aria-describedby="{{ uri }}">
+                        </div>
+                        <div class="mb-3">
+                            {% translate "Username" as username %}
+                            <label for="username" class="form-label">{{ username }}</label>
+                            <input id="username" type="email" class="form-control" aria-describedby="{{ username }}">
+                        </div>
+                        <div class="mb-3">
+                            {% translate "Password" as password %}
+                            <label for="password" class="form-label">{{ password }}</label>
+                            <input id="password" type="email" class="form-control" aria-describedby="{{ password }}">
+                        </div>
+                        <div class="mb-3">
+                            {% translate "Add Server" as addserver %}
+                            {% translate "Remove Server" as removeserver %}
+                            <button id="btn-add-server" class="btn btn-primary me-3" type="button">{{ addserver }}</button>
+                            <button id="btn-remove-server" class="btn btn-primary" type="button">{{ removeserver }}</button>
+                        </div>
+                        <h3>{% translate "COTURN Options" %}</h3>
+                        <fieldset class="row mb-3">
+                            <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                            <div class="col-sm-10">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="gridRadios1">
+                                        First radio
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                    <label class="form-check-label" for="gridRadios2">
+                                        Second radio
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="mb-3">
+                            <label for="customRange2" class="form-label">Example range</label>
+                            <input type="range" class="form-range" min="0" max="10" id="customRange2">
+                        </div>
+                        <div class="mb-3">
+                            {% translate "Add Server" as addserver %}
+                            <button id="btn-add-server" class="btn btn-primary me-3" type="button">{{ addserver }}</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-6">
+                    data
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -67,12 +67,13 @@ p {
 }
 
 footer {
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: $rich-black-fogra-29;
   text-align: center;
+  margin-top: 1.5rem;
+  padding-bottom: 1.5rem;
   padding-top: 1.5rem;
   @include prefix(box-shadow, 0px -2px 4px 0px rgba(188,196,220,1), webkit ms);
 
