@@ -107,3 +107,9 @@
         </div>
     </div>
 {% endblock %}
+{% block javascript_extra %}
+    <script type="module">
+        import {init} from '{% static "js/testrig/coturn.js" %}';
+        init();
+    </script>
+{% endblock %}
