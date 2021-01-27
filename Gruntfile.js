@@ -1,10 +1,14 @@
 module.exports = grunt => {
     const sass = require('node-sass');
-    const zlib = require('zlib');
+    const zlib = require('zlib')
 
     // Load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
     require('load-grunt-tasks')(grunt)
+    grunt.task.loadTasks('grunt/terser/tasks')
 
+    /**
+     * Grunt config.
+     */
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         sass: {
@@ -34,6 +38,22 @@ module.exports = grunt => {
                 }]
             }
         },
+        terser: {
+            options: {
+                mergeIntoShorthands: false,
+                roundingPrecision: -1,
+                sourceMap: true
+            },
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'activeaudit/staticfiles/assets/js/src',
+                    src: ['**/*.js', '!**/*.min.css', '!**/*.map'],
+                    dest: 'activeaudit/staticfiles/assets/js/build',
+                    ext: '.js'
+                }]
+            }
+        },
         shell: {
             removeCSS: {
                 // Remove compiled CSS and only keep minified css
@@ -41,7 +61,7 @@ module.exports = grunt => {
             },
             collectStatic: {
                 command: './manage.py collectstatic --noinput'
-            }
+            },
         },
         compress: {
             main: {
@@ -69,5 +89,5 @@ module.exports = grunt => {
         }
     });
 
-    grunt.registerTask('default', ['sass', 'cssmin', 'shell', 'compress']);
+    grunt.registerTask('default', ['sass', 'cssmin', 'terser', 'shell', 'compress']);
 };

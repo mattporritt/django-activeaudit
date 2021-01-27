@@ -11,6 +11,7 @@
 {% block content %}
     <div class="row">
         <div class="col-xl-8 offset-xl-2 col-lg-9 offset-lg-1">
+            <div class="border-bottom mb-2">
             <h1>{% translate "Test Coturn" %}</h1>
             <p>This page tests the STUN and TURN functionality of the COTURN service.
                 It creates a PeerConnection with the specified Servers, and then starts candidate gathering for a session.
@@ -20,9 +21,9 @@
             <p>STUN is working if you can gather a candidate with type "srflx".
                TURN server is working if you can gather a candidate with type "relay".
             <p>You can also test if you are using the wrong credentials to authenticate.</p>
-
+            </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-5">
                     <h3>{% translate "Test Settings" %}</h3>
                     {# I was initially going to use Django's built in Form API, but this form has zero server side interaction, #}
                     {# Also as form and button tags need to be added to the template anyway, it's just as easy to do it all here. #}
@@ -79,7 +80,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-6">
+                <div class="col-7">
                     <table class="table table-sm aa-table">
                         <thead>
                         <tr>
