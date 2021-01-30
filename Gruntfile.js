@@ -38,6 +38,18 @@ module.exports = grunt => {
                 }]
             }
         },
+        eslint: {
+            options: {
+                configFile: '.eslintrc.json',
+            },
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'activeaudit/staticfiles/jssrc',
+                    src: ['**/*.js', '!**/*.min.css', '!**/*.map'],
+                }]
+            }
+        },
         terser: { // See for options: https://www.npmjs.com/package/terser#api-reference
             options: {
                 sourceMap: true,
@@ -88,5 +100,5 @@ module.exports = grunt => {
         }
     });
 
-    grunt.registerTask('default', ['sass', 'cssmin', 'terser', 'shell', 'compress']);
+    grunt.registerTask('default', ['sass', 'cssmin', 'eslint', 'terser', 'shell', 'compress']);
 };
