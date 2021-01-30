@@ -46,9 +46,9 @@ module.exports = grunt => {
             target: {
                 files: [{
                     expand: true,
-                    cwd: 'activeaudit/staticfiles/assets/js/src',
+                    cwd: 'activeaudit/staticfiles/jssrc',
                     src: ['**/*.js', '!**/*.min.css', '!**/*.map'],
-                    dest: 'activeaudit/staticfiles/assets/js/build',
+                    dest: 'activeaudit/staticfiles/assets/js',
                     ext: '.js'
                 }]
             }
