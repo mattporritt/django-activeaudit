@@ -38,11 +38,10 @@ module.exports = grunt => {
                 }]
             }
         },
-        terser: {
+        terser: { // See for options: https://www.npmjs.com/package/terser#api-reference
             options: {
-                mergeIntoShorthands: false,
-                roundingPrecision: -1,
-                sourceMap: true
+                sourceMap: true,
+                ecma: 2016
             },
             target: {
                 files: [{
