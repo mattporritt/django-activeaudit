@@ -1,2 +1,2 @@
 // @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
-export const init=()=>{window.console.log("I have been loaded...")};
+"use strict";import{bar}from"js/testrig/foo.js";const addBtn=document.getElementById("btn-add-server"),removeBtn=document.getElementById("btn-remove-server"),tableBody=document.getElementById("tbody#candidatesBody"),gatherBtn=document.getElementById("button#gather"),passwordInput=document.getElementById("input#password"),servers=document.getElementById("select#servers"),urlInput=document.getElementById("input#url"),usernameInput=document.getElementById("input#username"),iceCandidatePoolInput=document.getElementById("input#iceCandidatePool");export const init=()=>{window.console.log("I have been loaded..."),bar()};

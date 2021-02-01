@@ -24,28 +24,11 @@
 
 'use strict';
 
-import {bar} from 'js/testrig/foo.js';
-
-// Module level variables.
-const addBtn = document.getElementById('btn-add-server');
-const removeBtn = document.getElementById('btn-remove-server');
-const tableBody = document.getElementById('tbody#candidatesBody');
-const gatherBtn = document.getElementById('button#gather');
-const passwordInput = document.getElementById('input#password');
-const servers = document.getElementById('select#servers');
-const urlInput = document.getElementById('input#url');
-const usernameInput = document.getElementById('input#username');
-const iceCandidatePoolInput = document.getElementById('input#iceCandidatePool');
-
-// Event listeners.git
-
-
 /**
  * Script entry point.
  *
  * @method init
  */
-export const init = () => {
-    window.console.log('I have been loaded...');
-    bar();
+export const bar = () => {
+    window.console.log('I have been imported...');
 };
