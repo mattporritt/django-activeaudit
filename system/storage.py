@@ -25,11 +25,20 @@
 from django.contrib.staticfiles.storage import ManifestFilesMixin, StaticFilesStorage
 
 
-class ManifestStaticFilesStorage(ManifestFilesMixin, StaticFilesStorage):
+class ActiveAuditManifestStaticFilesStorage(ManifestFilesMixin, StaticFilesStorage):
     """
     A static file system storage backend which also saves
     hashed copies of the files it saves.
     """
-    pass
+    patterns = (
+        ("*.css", (
+            r"""(url\(['"]{0,1}\s*(.*?)["']{0,1}\))""",
+            (r"""(@import\s*["']\s*(.*?)["'])""", """@import url("%s")"""),
+        )),
+        ("*.js", (
+             (r"""(\}\s*from\s*[\"\'](.*?)[\"\']\;)""", """}from"%s";"""),
+        )),
+    )
 
-
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
