@@ -24,7 +24,7 @@
 
 'use strict';
 
-import {bar} from 'js/testrig/foo.js';
+import {bar} from './foo.js';
 
 // Module level variables.
 const addBtn = document.getElementById('btn-add-server');
