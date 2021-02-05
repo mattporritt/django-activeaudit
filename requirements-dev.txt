@@ -3,3 +3,4 @@
 
 ###### Requirements without Version Specifiers ######
 flake8
+django-manifest-loader
