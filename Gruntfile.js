@@ -5,6 +5,7 @@ module.exports = grunt => {
     // Load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
     require('load-grunt-tasks')(grunt)
     grunt.task.loadTasks('grunt/terser/tasks')
+    grunt.task.loadTasks('grunt/cachebust/tasks')
 
     /**
      * Grunt config.
@@ -65,6 +66,20 @@ module.exports = grunt => {
                 }]
             }
         },
+        cachebust: {
+            options: {
+                JSONmap: 'static/staticfiles.json',
+            },
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'static/js',
+                    src: ['**/*.js', '!**/*.min.css', '!**/*.map'],
+                    dest: 'activeaudit/staticfiles/assets/js',
+                    ext: '.js'
+                }]
+            }
+        },
         shell: {
             removeCSS: {
                 // Remove compiled CSS and only keep minified css
@@ -100,5 +115,5 @@ module.exports = grunt => {
         }
     });
 
-    grunt.registerTask('default', ['sass', 'cssmin', 'eslint', 'terser', 'shell', 'compress']);
+    grunt.registerTask('default', ['sass', 'cssmin', 'eslint', 'terser', 'cachebust', 'shell', 'compress']);
 };
