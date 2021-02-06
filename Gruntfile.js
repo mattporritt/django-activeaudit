@@ -66,9 +66,19 @@ module.exports = grunt => {
                 }]
             }
         },
+        shell: {
+            removeCSS: {
+                // Remove compiled CSS and only keep minified css
+                command: 'find ./activeaudit/staticfiles/assets/css -type f ! -name \'*.min.*\' -delete -print'
+            },
+            collectStatic: {
+                command: './manage.py collectstatic --noinput'
+            },
+        },
         cachebust: {
             options: {
                 JSONmap: 'static/staticfiles.json',
+                staticDir: 'static/',
             },
             target: {
                 files: [{
@@ -79,15 +89,6 @@ module.exports = grunt => {
                     ext: '.js'
                 }]
             }
-        },
-        shell: {
-            removeCSS: {
-                // Remove compiled CSS and only keep minified css
-                command: 'find ./activeaudit/staticfiles/assets/css -type f ! -name \'*.min.*\' -delete -print'
-            },
-            collectStatic: {
-                command: './manage.py collectstatic --noinput'
-            },
         },
         compress: {
             main: {
@@ -115,5 +116,5 @@ module.exports = grunt => {
         }
     });
 
-    grunt.registerTask('default', ['sass', 'cssmin', 'eslint', 'terser', 'cachebust', 'shell', 'compress']);
+    grunt.registerTask('default', ['sass', 'cssmin', 'eslint', 'terser', 'shell', 'cachebust', 'compress']);
 };
