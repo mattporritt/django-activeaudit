@@ -46,6 +46,6 @@ const iceCandidatePoolInput = document.getElementById('input#iceCandidatePool');
  * @method init
  */
 export const init = () => {
-    window.console.log('I have been loaded...');
+    window.console.log('I have been loaded... Fuckers');
     bar();
 };

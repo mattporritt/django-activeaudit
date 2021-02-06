@@ -30,5 +30,5 @@
  * @method init
  */
 export const bar = () => {
-    window.console.log('I have been imported...');
+    window.console.log('I have been imported... Fuckers...x');
 };

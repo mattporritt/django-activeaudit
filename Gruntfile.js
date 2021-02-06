@@ -67,6 +67,10 @@ module.exports = grunt => {
             }
         },
         shell: {
+            removeStatic: {
+                // Remove compiled CSS and only keep minified css
+                command: 'rm -rf static/'
+            },
             removeCSS: {
                 // Remove compiled CSS and only keep minified css
                 command: 'find ./activeaudit/staticfiles/assets/css -type f ! -name \'*.min.*\' -delete -print'
@@ -116,5 +120,7 @@ module.exports = grunt => {
         }
     });
 
-    grunt.registerTask('default', ['sass', 'cssmin', 'eslint', 'terser', 'shell', 'cachebust', 'compress']);
+    grunt.registerTask('default',
+        ['shell:removeStatic','sass', 'cssmin', 'eslint', 'terser',
+            'shell:removeCSS', 'shell:collectStatic', 'cachebust', 'compress']);
 };
