@@ -21,6 +21,7 @@
             <p>STUN is working if you can gather a candidate with type "srflx".
                TURN server is working if you can gather a candidate with type "relay".
             <p>You can also test if you are using the wrong credentials to authenticate.</p>
+                <p id="getUserMediaPermissions">You have given permission, candidate from multiple interface will be gathered.</p>
             </div>
             <div class="row">
                 <div class="col-5">
@@ -62,11 +63,11 @@
                             <div class="col-sm-8">
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="transportall">{% translate "All" %}</label>
-                                    <input id="transportall" class="form-check-input" type="radio" value="all" checked>
+                                    <input id="transportall" name="transports" class="form-check-input" type="radio" value="all" checked>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="transportrelay">{% translate "Relay" %}</label>
-                                    <input id="transportrelay" class="form-check-input" type="radio" value="relay">
+                                    <input id="transportrelay" name="transports" class="form-check-input" type="radio" value="relay">
                                 </div>
                             </div>
                         </fieldset>
@@ -79,28 +80,24 @@
                             <button id="btn-add-candidates" class="btn btn-primary" type="button">{{ candidates }}</button>
                         </div>
                     </form>
+                    <div id="error"></div>
                 </div>
                 <div class="col-7">
                     <table class="table table-sm aa-table">
                         <thead>
                         <tr>
                             <th scope="col">{% translate "Time" %}</th>
-                            <th scope="col">{% translate "Component Type" %}</th>
+                            <th scope="col">{% translate "Component" %}</th>
+                            <th scope="col">{% translate "Type" %}</th>
                             <th scope="col">{% translate "Foundation" %}</th>
-                            <th scope="col">{% translate "Protocol Address" %}</th>
+                            <th scope="col">{% translate "Protocol" %}</th>
+                            <th scope="col">{% translate "Address" %}</th>
                             <th scope="col">{% translate "Port" %}</th>
                             <th scope="col">{% translate "Priority" %}</th>
                         </tr>
                         </thead>
                         <tbody id="tbl-body-candidates">
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
+
                         </tbody>
                     </table>
                 </div>
